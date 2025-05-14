@@ -5,15 +5,17 @@ namespace WebApp_TP2.Pages.CityManager
 {
     public class CreateCityModel : PageModel
     {
-        [BindProperty]
-        public string cityName { get; set; }
+        public string CityName { get; set; }
 
-        public void OnPost()
+        public void OnPost(string cityName) 
         {
-            if (!ModelState.IsValid)
+            if (string.IsNullOrEmpty(cityName))
             {
+                ModelState.AddModelError("name", "City name is required.");
                 return;
             }
+
+            CityName = cityName;
         }
     }
 }
