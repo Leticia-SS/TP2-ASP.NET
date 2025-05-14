@@ -15,4 +15,8 @@
 			<button type="submit" class="btn-primary btn">Enviar</button>
 		</div>
 	</form>
+	@if (HttpContext.Request.Method == "POST" && ModelState.IsValid)
+	{
+		<p>Cidade cadastrada: <bold>@Model.cityName</bold></p>
+	}
 </section>

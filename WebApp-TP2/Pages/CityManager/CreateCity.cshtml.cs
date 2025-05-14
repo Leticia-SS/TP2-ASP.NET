@@ -7,5 +7,13 @@ namespace WebApp_TP2.Pages.CityManager
     {
         [BindProperty]
         public string cityName { get; set; }
+
+        public void OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return;
+            }
+        }
     }
 }
