@@ -7,4 +7,8 @@
     <RootNamespace>WebApp_TP2</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Pages\InputModel.cs" />
+  </ItemGroup>
+
 </Project>
