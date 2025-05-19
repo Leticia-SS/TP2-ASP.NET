@@ -12,7 +12,7 @@
 			<input asp-for="Input.CityName" class="form-control"
 				   aria-describedby="cityNameHelp" />
 			<div id="cityNameHelp" class="form-text">
-				Informe o nome completo da cidade turística
+				Informe o nome completo da cidade
 			</div>
 			<span asp-validation-for="Input.CityName" class="text-danger"></span>
 		</div>
@@ -27,7 +27,6 @@
 			<p>Cidade <strong>@Model.SubmittedCityName</strong> cadastrada com sucesso.</p>
 		</div>
 	}
-	</div>
 
 	@section Scripts {
     <partial name="_ValidationScriptsPartial" />
@@ -48,7 +47,7 @@
                     }
                 });
             });
-        };
+        });
     </script>
 	}
 </section>

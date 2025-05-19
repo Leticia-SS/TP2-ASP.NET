@@ -1,0 +1,16 @@
+﻿@page
+@model WebApp_TP2.Pages.CityManager.CreateCountryModel
+@{
+}
+
+<form method="post">
+    <div>
+        <label asp-for="Input.CountryName"></label>
+        <input asp-for="Input.CountryName" />
+    </div>
+    <div>
+        <label asp-for="Input.CountryCode"></label>
+        <input asp-for="Input.CountryCode" />
+    </div>
+    <button type="submit">Enviar</button>
+</form>
