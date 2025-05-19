@@ -11,6 +11,7 @@
     <div>
         <label asp-for="Input.CountryCode"></label>
         <input asp-for="Input.CountryCode" />
+        <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
     </div>
     <button type="submit">Enviar</button>
 </form>
