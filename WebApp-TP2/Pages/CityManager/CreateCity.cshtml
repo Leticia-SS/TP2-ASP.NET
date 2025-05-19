@@ -25,29 +25,31 @@
 		<div class="alert alert-success mt-4">
 			<h4 class="alert-heading">Sucesso!</h4>
 			<p>Cidade <strong>@Model.SubmittedCityName</strong> cadastrada com sucesso.</p>
+			<form method="post" asp-page-handler="ViewDetails">
+				<button type="submit" class="btn btn-info mt-2">
+					Ver Detalhes da Cidade
+				</button>
+			</form>
 		</div>
 	}
 
 	@section Scripts {
     <partial name="_ValidationScriptsPartial" />
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('cityForm');
-            const inputs = form.querySelectorAll('input[data-val="true"]');
-            
-            inputs.forEach(input => {
-                input.addEventListener('input', function() {
-                    const field = $(this);
-                    field.trigger('blur'); 
-                    
-                    if (field.valid()) {
-                        field.removeClass('is-invalid').addClass('is-valid');
-                    } else {
-                        field.removeClass('is-valid').addClass('is-invalid');
-                    }
-                });
-            });
-        });
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const form = document.getElementById('cityForm');
+				const inputs = form.querySelectorAll('input[data-val="true"]');
+
+				inputs.forEach(input => {
+					input.addEventListener('blur', function() {
+						const field = $(this);
+						const isValid = field.valid();
+
+						field.toggleClass('is-valid', isValid);
+						field.toggleClass('is-invalid', !isValid);
+					});
+				});
+			});
     </script>
 	}
 </section>

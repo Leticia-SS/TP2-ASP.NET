@@ -15,7 +15,8 @@ namespace WebApp_TP2.Pages.CityManager
 
         [BindProperty]
         public InputModel Input { get; set; } = new InputModel();
-
+        
+        [TempData]
         public string SubmittedCityName { get; set; }
 
         public IActionResult OnPost()
@@ -27,6 +28,16 @@ namespace WebApp_TP2.Pages.CityManager
 
             SubmittedCityName = Input.CityName;
             return Page();
+        }
+
+        public IActionResult OnPostViewDetails()
+        {
+            if (string.IsNullOrEmpty(SubmittedCityName))
+            {
+                TempData["ErrorMessage"] = "Nenhuma cidade cadastrada para visualizar";
+                return RedirectToPage();
+            }
+            return RedirectToPage("./CityDetails", new { cityName = SubmittedCityName });
         }
     }
 }

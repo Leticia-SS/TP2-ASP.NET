@@ -1,0 +1,5 @@
+﻿@page "{cityName?}"
+@model WebApp_TP2.Pages.CityManager.CityDetailsModel
+
+<h1>@(string.IsNullOrEmpty(Model.CityName) ? "Nenhuma cidade selecionada" : 
+	$"Você está vendo detalhes de: {Model.CityName}")</h1>
