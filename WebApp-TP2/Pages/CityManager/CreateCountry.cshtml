@@ -4,14 +4,25 @@
 }
 
 <form method="post">
-    <div>
-        <label asp-for="Input.CountryName"></label>
-        <input asp-for="Input.CountryName" />
-    </div>
-    <div>
-        <label asp-for="Input.CountryCode"></label>
-        <input asp-for="Input.CountryCode" />
-        <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
-    </div>
+    @for (int i = 0; i < 5; i++)
+    {
+        <div>
+            <label>País @(i + 1)</label>
+            <input asp-for="Countries[i].CountryName" placeholder="Nome" />
+            <input asp-for="Countries[i].CountryCode" placeholder="Código" />
+            <span asp-validation-for="Countries[i].CountryCode"></span>
+        </div>
+    }
     <button type="submit">Enviar</button>
 </form>
+
+@if (Model.Countries?.Any() == true)
+{
+    <h3>Países submetidos:</h3>
+    <ul>
+        @foreach (var country in Model.Countries)
+        {
+            <li>@country.CountryName (@country.CountryCode)</li>
+        }
+    </ul>
+}
